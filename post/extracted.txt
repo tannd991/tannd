@@ -1,0 +1,35 @@
+
+
+
+SD-WAN – Công nghệ mạng theo xu hướng mới
+
+Ngày nay với sự phát triển không ngừng của công nghệ, thông tin dần đã trở thành một tài nguyên, một tài sản quan trọng của các doanh nghiệp. Hệ mạng trở thành mạch máu không thể thiếu của mỗi doanh nghiệp. Tuy nhiên, một thách thức không nhỏ về vấn đề tối ưu hóa hiệu suất của mạng WAN khi các ứng dụng đang hoạt động, không còn được thiết lập chỉ tại một địa điểm cố định như trung tâm dữ liệu hay trụ sở chính của công ty, mà được thiết kế dạng “hub-and-spoke” hay mô hình dạng sao (Star Topology). Do vậy, các ứng dụng đang có xu hướng dựa trên công nghệ điện toán đám mây, chuyển sang cung cấp dịch vụ trên nền web. Việc này dẫn đến sự xung đột với nguyên tắc bảo mật truyền thống, khi mà mọi kết nối của người dùng đều được giám sát qua cổng bảo mật trung tâm trước khi kết nối đến ứng dụng trên web.
+
+
+
+Rõ ràng đây không phải là cách sử dụng băng thông tối ưu. Các công ty phải trả một khoản phí hàng tháng khá lớn cho đường truyền kết nối MPLS dành riêng cho công ty với yêu cầu cao về tốc độ, tính ổn định, chất lượng dịch vụ… nhưng chỉ phục vụ kết nối Internet đơn giản. Phương án thực tế hơn là đảm bảo kết nối vào internet hay dịch vụ trên web tại các chi nhánh với băng thông theo yêu cầu người dùng, hỗ trợ nhiều phương án kết nối WAN theo thực tế, trong khi vẫn duy trì chính sách bảo mật là giải pháp cần được cân nhắc. Giải pháp lai (WAN Hybrid), tương thích nhiều phương án kết nối WAN vật lý kết hợp sử dụng phần mềm để tối ưu kết nối logic mạng WAN (SD WAN: Software-Defined WAN) cho doanh nghiệp/công ty được phát triển nhằm mục đích này.
+
+
+
+1. SD-WAN hoạt động như thế nào
+
+Những ứng dụng có nhu cầu về yếu tố độ tin cậy cao, và chất lượng dịch vụ tốt kèm theo đòi hỏi nhiều băng thông đều dựa vào mạng diện rộng SD – WAN. Qua đó một số ứng dụng quan trọng của doanh nghiệp cũng được hỗ trợ bảo mật như máy chủ, máy tính cá nhân, nền tảng VoIP, các hệ thống ERP và CRM, đám mây khác…
+
+Đối với phương pháp truyền thống muốn giải quyết các ràng buộc với WAN và đáp ứng đầy đủ yêu cầu mà doanh nghiệp đưa ra thì cách duy nhất là nâng cấp băng thông mạng. Nhưng cách này vẫn bị hạn chế về mặt chi phí, và nó cũng không tập trung vào bảo vệ cho các ứng dụng quan trọng, hay thông báo mọi tính năng mới đã được nâng cấp trong các ứng dụng, dữ liệu bổ sung thêm, được đặt trong các đám mây công cộng và tư nhân.
+
+
+
+Sự ra đời của công nghệ SD – WAN cho phép bạn tạo ra một kiến trúc WAN lai kết nối nhiều đường MPLS, cung cấp tính năng tự động hóa chương trình, ứng dụng và các điều kiện khác của mạng. Bên cạnh đó, nó cũng thực hiện nhiệm vụ sàn lọc, phân loại chi tiết ra ứng dụng nào là tốt nhất và đặt ưu tiên tuyệt đối cho ứng dụng quan trọng, đảm bảo được vận hành tốt nhất. Đây là giải pháp thay thế cho thế hệ tiếp theo của WAN, các công nghệ SD – WAN giải quyết các yêu cầu về hạ tầng ứng dụng và chi nhánh.
+
+2. Đặc tính của SD – WAN
+
+Theo nghiên cứu Gartner đã xác định một thiết bị SD – WAN có bốn yếu tố bắt buộc như sau:
+
+Khả năng đáp ứng, hỗ trợ nhiều loại kết nối như MPLS, Frame relay và tốc độ truyền thông không dây LTE hoặc cao hơn.
+
+Khả năng tự lựa chọn đường dẫn động, để chia sẻ, tải về và các mục đích khác nữa.
+
+Giao diện đẹp, cấu hình đơn giản dễ quản lý.
+
+Khả năng hỗ trợ VPN và các dịch khác của bên thứ ba như bộ điều khiển tối ưu hóa WAN, Firewall, và cổng WEB.
+
