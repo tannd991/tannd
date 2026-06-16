@@ -9,7 +9,7 @@ Giải pháp cung cấp:
   - Xây dựng thương hiệu cá nhân bằng AI
 Liên hệ tư vấn: Zalo 0772219688 | Facebook: https://www.facebook.com/duytan1991/`;
 
-const API_KEY = "sk-f4cf750b41904d9580df8254cede2f16";
+const API_KEY = "sk-4728e2ad71bf4515a739abeba9fbcad2";
 const API_URL = "https://api.deepseek.com/chat/completions";
 const ACTUAL_MODEL_NAME = "deepseek-v4-flash";
 
