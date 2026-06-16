@@ -202,7 +202,7 @@
         font-size: 38px;
       }
 
-      
+
 
       .btn {
         margin: 8px;
@@ -313,21 +313,32 @@
   <div class="transition-overlay"></div>
 
   <header>
-    <button class="mobile-menu-btn" onclick="document.querySelector('nav').classList.toggle('show-nav')"><i class="fa-solid fa-bars"></i></button>
+    <button class="mobile-menu-btn" onclick="document.querySelector('nav').classList.toggle('show-nav')"><i
+        class="fa-solid fa-bars"></i></button>
     <a href="index.html" class="logo logo-link" style="text-decoration: none;">
       <img src="logo.jpg" alt="J-TECH Logo" class="logo-img" />
       <span>J-TECH</span>
     </a>
     <nav style="display: flex; align-items: center; gap: 15px;">
-      <a href="index.html" style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #2563eb;">TRANG CHỦ</a>
+      <a href="index.html"
+        style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #2563eb;">TRANG
+        CHỦ</a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="about.html" style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">GIỚI THIỆU</a>
+      <a href="about.html"
+        style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">GIỚI
+        THIỆU</a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="news.html" style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">TIN CÔNG NGHỆ</a>
+      <a href="news.html"
+        style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">TIN
+        CÔNG NGHỆ</a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="#" style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">GIẢI PHÁP <i class="fa-solid fa-angle-down" style="font-size: 12px; margin-left: 4px; color: #6b7280;"></i></a>
+      <a href="#"
+        style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">GIẢI
+        PHÁP <i class="fa-solid fa-angle-down" style="font-size: 12px; margin-left: 4px; color: #6b7280;"></i></a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="services.html" style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">DỊCH VỤ</a>
+      <a href="services.html"
+        style="text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase; color: #000;">DỊCH
+        VỤ</a>
     </nav>
   </header>
   <section class="hero">
@@ -361,7 +372,7 @@
       <br />
       <div class="cta-buttons">
         <a class="btn secondary" href="mailto:tannd991@gmail.com">Email:tannd991@gmail.com</a>
-        <a class="btn phone-btn" href="tel:0772219688">Gọi ngay: 077 221 9688</a>
+        <a class="btn phone-btn" href="tel:0772219688">Gọi ngay: 077 221 96889</a>
       </div>
     </div>
   </section>
@@ -382,45 +393,45 @@
 
   <!-- Floating Chatbot Toggle Button -->
   <button id="chatbot-toggle" class="chatbot-toggle shadow-2xl" onclick="toggleChatbot()">
-      <i class="fa-solid fa-robot"></i>
+    <i class="fa-solid fa-robot"></i>
   </button>
 
   <!-- Chatbot Window -->
   <div id="chatbot-window" class="chatbot-window shadow-2xl hidden">
-      <!-- Header -->
-      <div class="chat-header">
-          <div class="header-info">
-              <div class="avatar-container">
-                  <img src="https://ui-avatars.com/api/?name=AI&background=0D8ABC&color=fff" alt="AI Avatar">
-                  <span class="online-indicator"></span>
-              </div>
-              <div class="bot-info">
-                  <h3>Trợ lý AI</h3>
-                  <span>Luôn sẵn sàng hỗ trợ</span>
-              </div>
-          </div>
-          <div class="header-actions">
-              <button id="refresh-btn" class="icon-btn" title="Làm mới trò chuyện" onclick="refreshChat()">
-                  <i class="fa-solid fa-rotate-right"></i>
-              </button>
-              <button class="icon-btn" title="Đóng" onclick="toggleChatbot()">
-                  <i class="fa-solid fa-xmark"></i>
-              </button>
-          </div>
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="header-info">
+        <div class="avatar-container">
+          <img src="https://ui-avatars.com/api/?name=AI&background=0D8ABC&color=fff" alt="AI Avatar">
+          <span class="online-indicator"></span>
+        </div>
+        <div class="bot-info">
+          <h3>Trợ lý AI</h3>
+          <span>Luôn sẵn sàng hỗ trợ</span>
+        </div>
       </div>
+      <div class="header-actions">
+        <button id="refresh-btn" class="icon-btn" title="Làm mới trò chuyện" onclick="refreshChat()">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <button class="icon-btn" title="Đóng" onclick="toggleChatbot()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
 
-      <!-- Chat Messages -->
-      <div id="chat-messages" class="chat-messages">
-          <!-- Messages will be injected here -->
-      </div>
+    <!-- Chat Messages -->
+    <div id="chat-messages" class="chat-messages">
+      <!-- Messages will be injected here -->
+    </div>
 
-      <!-- Chat Input -->
-      <div class="chat-input-container">
-          <input type="text" id="chat-input" placeholder="Nhập tin nhắn của bạn..." onkeypress="handleEnter(event)">
-          <button id="send-btn" class="send-btn" onclick="sendMessage()">
-              <i class="fa-solid fa-paper-plane"></i>
-          </button>
-      </div>
+    <!-- Chat Input -->
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Nhập tin nhắn của bạn..." onkeypress="handleEnter(event)">
+      <button id="send-btn" class="send-btn" onclick="sendMessage()">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
   </div>
 
   <script src="script.js"></script>
