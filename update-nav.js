@@ -53,7 +53,7 @@ files.forEach(file => {
       <a href="services.html"\${activeDichVu}>Dịch vụ</a>
     </nav>`;
 
-    content = content.replace(/<nav>[\s\S]*?<\/nav>/, newNav);
+    content = content.replace(/<nav[^>]*>[\s\S]*?<\/nav>/, newNav);
     fs.writeFileSync(file, content);
 });
 

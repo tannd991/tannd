@@ -25,11 +25,7 @@ files.forEach(file => {
       <a href="services.html" style="${baseStyle}${activeDichVu}">DỊCH VỤ</a>
     </nav>`;
 
-    if (content.includes('<nav class="main-nav">')) {
-        content = content.replace(/<nav class="main-nav">[\s\S]*?<\/nav>/, newNav);
-    } else {
-        content = content.replace(/<nav>[\s\S]*?<\/nav>/, newNav);
-    }
+    content = content.replace(/<nav[^>]*>[\s\S]*?<\/nav>/, newNav);
     fs.writeFileSync(file, content);
 });
 console.log("Updated with inline styles and hardcoded uppercase");
