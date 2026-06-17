@@ -26,6 +26,8 @@ const dataDir = path.join(__dirname, 'data');
 const postDir = path.join(__dirname, 'post');
 const postsFile = path.join(dataDir, 'posts.json');
 const newsHtmlPath = path.join(__dirname, 'news.html');
+const solutionsHtmlPath = path.join(__dirname, 'solutions.html');
+const servicesHtmlPath = path.join(__dirname, 'services.html');
 
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir);
 if (!fs.existsSync(postDir)) fs.mkdirSync(postDir);
@@ -57,6 +59,15 @@ function slugify(text) {
 
 // Rebuild HTML single post
 function generateArticleHtml(post) {
+    const category = post.category || 'Tin công nghệ';
+    let backLink = '../news.html';
+    if (category === 'Giải pháp') backLink = '../solutions.html';
+    else if (category === 'Dịch vụ') backLink = '../services.html#service-news';
+
+    const activeTinCongNghe = (category === 'Tin công nghệ' || category === 'Khác') ? 'color: #2563eb;' : 'color: #000;';
+    const activeGiaiPhap = (category === 'Giải pháp') ? 'color: #2563eb;' : 'color: #000;';
+    const activeDichVu = (category === 'Dịch vụ') ? 'color: #2563eb;' : 'color: #000;';
+
     return `<!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -97,16 +108,16 @@ function generateArticleHtml(post) {
       <span style="color: #ccc; margin: 0 4px;">|</span>
       <a href="../about.html" style="color: #000; text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">GIỚI THIỆU</a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="../news.html" style="color: #2563eb; text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">TIN CÔNG NGHỆ</a>
+      <a href="../news.html" style="${activeTinCongNghe} text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">TIN CÔNG NGHỆ</a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="#" style="color: #000; text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">GIẢI PHÁP <i class="fa-solid fa-angle-down" style="font-size: 12px; margin-left: 4px; color: #6b7280;"></i></a>
+      <a href="../solutions.html" style="${activeGiaiPhap} text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">GIẢI PHÁP <i class="fa-solid fa-angle-down" style="font-size: 12px; margin-left: 4px; color: #6b7280;"></i></a>
       <span style="color: #ccc; margin: 0 4px;">|</span>
-      <a href="../services.html" style="color: #000; text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">DỊCH VỤ</a>
+      <a href="../services.html" style="${activeDichVu} text-decoration: none; font-weight: bold; font-size: 15px; text-transform: uppercase;">DỊCH VỤ</a>
     </nav>
   </header>
 
   <main class="article-container">
-    <a href="../news.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Quay lại Danh sách</a>
+    <a href="${backLink}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Quay lại Danh sách</a>
     <div class="article-header">
       <h1 class="article-title">${post.title}</h1>
       <div class="article-meta">
@@ -173,12 +184,13 @@ function generateArticleHtml(post) {
 </html>`;
 }
 
-// Rebuild news.html blog grid
-function rebuildNewsHtml(posts) {
-    let newsHtml = fs.readFileSync(newsHtmlPath, 'utf8');
+// Rebuild grid helper
+function rebuildGrid(filePath, filteredPosts) {
+    if (!fs.existsSync(filePath)) return;
+    let htmlContent = fs.readFileSync(filePath, 'utf8');
     
-    const cardsHtml = posts.map(post => {
-      const cacheBust = `?v=${Date.now()}`;
+    const cardsHtml = filteredPosts.map(post => {
+        const cacheBust = `?v=${Date.now()}`;
         return `
       <article class="blog-card">
         <img src="${post.thumbnail}${cacheBust}" alt="${post.title}" class="blog-thumb">
@@ -197,8 +209,23 @@ function rebuildNewsHtml(posts) {
 
     // Regex to replace everything between the start and end markers
     const regex = /(<!-- BLOG_GRID_START -->)[\s\S]*?(<!-- BLOG_GRID_END -->)/;
-    newsHtml = newsHtml.replace(regex, `$1\n${cardsHtml}\n      $2`);
-    fs.writeFileSync(newsHtmlPath, newsHtml, 'utf8');
+    htmlContent = htmlContent.replace(regex, `$1\n${cardsHtml}\n      $2`);
+    fs.writeFileSync(filePath, htmlContent, 'utf8');
+}
+
+// Rebuild all pages grids
+function rebuildAllPages(posts) {
+    // 1. news.html: "Tin công nghệ" or empty or "Khác"
+    const newsPosts = posts.filter(p => !p.category || p.category === 'Tin công nghệ' || p.category === 'Khác');
+    rebuildGrid(newsHtmlPath, newsPosts);
+
+    // 2. solutions.html: "Giải pháp"
+    const solutionsPosts = posts.filter(p => p.category === 'Giải pháp');
+    rebuildGrid(solutionsHtmlPath, solutionsPosts);
+
+    // 3. services.html: "Dịch vụ"
+    const servicesPosts = posts.filter(p => p.category === 'Dịch vụ');
+    rebuildGrid(servicesHtmlPath, servicesPosts);
 }
 
 app.get('/api/posts', (req, res) => {
@@ -233,7 +260,7 @@ app.post('/api/posts', (req, res) => {
     savePosts(posts);
 
     fs.writeFileSync(path.join(postDir, `${slug}.html`), generateArticleHtml(newPost), 'utf8');
-    rebuildNewsHtml(posts);
+    rebuildAllPages(posts);
 
     res.json({ success: true, post: newPost });
 });
@@ -257,7 +284,7 @@ app.put('/api/posts/:id', (req, res) => {
     savePosts(posts);
 
     fs.writeFileSync(path.join(postDir, `${post.slug}.html`), generateArticleHtml(post), 'utf8');
-    rebuildNewsHtml(posts);
+    rebuildAllPages(posts);
 
     res.json({ success: true, post });
 });
@@ -273,7 +300,7 @@ app.delete('/api/posts/:id', (req, res) => {
     const filePath = path.join(postDir, `${post.slug}.html`);
     if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
 
-    rebuildNewsHtml(posts);
+    rebuildAllPages(posts);
 
     res.json({ success: true });
 });

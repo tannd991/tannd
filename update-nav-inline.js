@@ -7,6 +7,7 @@ files.forEach(file => {
     let activeTrangChu = file === 'index.html' ? ' color: #2563eb;' : ' color: #000;';
     let activeGioiThieu = file === 'about.html' ? ' color: #2563eb;' : ' color: #000;';
     let activeTinCongNghe = file.startsWith('news') ? ' color: #2563eb;' : ' color: #000;';
+    let activeGiaiPhap = file.startsWith('solutions') ? ' color: #2563eb;' : ' color: #000;';
     let activeDichVu = file === 'services.html' ? ' color: #2563eb;' : ' color: #000;';
 
     const baseStyle = 'text-decoration: none; font-weight: bold; font-size: 15px; margin-left: 0; text-transform: uppercase;';
@@ -19,7 +20,7 @@ files.forEach(file => {
       ${sep}
       <a href="news.html" style="${baseStyle}${activeTinCongNghe}">TIN CÔNG NGHỆ</a>
       ${sep}
-      <a href="#" style="${baseStyle} color: #000;">GIẢI PHÁP <i class="fa-solid fa-angle-down" style="font-size: 12px; margin-left: 4px; color: #6b7280;"></i></a>
+      <a href="solutions.html" style="${baseStyle}${activeGiaiPhap}">GIẢI PHÁP <i class="fa-solid fa-angle-down" style="font-size: 12px; margin-left: 4px; color: #6b7280;"></i></a>
       ${sep}
       <a href="services.html" style="${baseStyle}${activeDichVu}">DỊCH VỤ</a>
     </nav>`;

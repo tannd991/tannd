@@ -38,6 +38,7 @@ files.forEach(file => {
     let activeTrangChu = file === 'index.html' ? ' class="active"' : '';
     let activeGioiThieu = file === 'about.html' ? ' class="active"' : '';
     let activeTinCongNghe = file.startsWith('news') ? ' class="active"' : '';
+    let activeGiaiPhap = file.startsWith('solutions') ? ' class="active"' : '';
     let activeDichVu = file === 'services.html' ? ' class="active"' : '';
 
     const newNav = `<nav class="main-nav">
@@ -47,7 +48,7 @@ files.forEach(file => {
       <span class="nav-sep">|</span>
       <a href="news.html"\${activeTinCongNghe}>Tin công nghệ</a>
       <span class="nav-sep">|</span>
-      <a href="#">Giải pháp <i class="fa-solid fa-angle-down"></i></a>
+      <a href="solutions.html"\${activeGiaiPhap}>Giải pháp <i class="fa-solid fa-angle-down"></i></a>
       <span class="nav-sep">|</span>
       <a href="services.html"\${activeDichVu}>Dịch vụ</a>
     </nav>`;
