@@ -2,7 +2,7 @@
 /* Floating Chatbot Button */
 .chatbot-toggle {
     position: fixed;
-    bottom: 100px; /* Adjusted to be above the phone float */
+    bottom: 170px; /* Adjusted to be above the telegram button */
     right: 30px;
     width: 60px;
     height: 60px;
@@ -24,7 +24,7 @@
 /* Chatbot Window */
 .chatbot-window {
     position: fixed;
-    bottom: 180px;
+    bottom: 240px;
     right: 30px;
     width: 380px;
     height: 600px;
@@ -352,7 +352,40 @@
         max-height: 100vh;
     }
     .chatbot-toggle {
-        bottom: 90px; /* Above phone float */
+        bottom: 160px; /* Above telegram toggle */
+        right: 20px;
+    }
+}
+
+/* Telegram Button */
+.telegram-toggle {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #0088cc; /* Telegram brand color */
+    color: white;
+    border: none;
+    font-size: 32px; /* Bigger icon */
+    cursor: pointer;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.telegram-toggle:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+    .telegram-toggle {
+        bottom: 90px;
         right: 20px;
     }
 }

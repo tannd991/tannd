@@ -137,6 +137,12 @@ function generateArticleHtml(post) {
     © 2026 J-TECH Consultant. All rights reserved.
   </footer>
   
+  
+  <!-- Telegram Button -->
+  <a href="https://t.me/repocskh_bot" target="_blank" rel="noopener noreferrer" class="telegram-toggle shadow-2xl">
+    <i class="fa-brands fa-telegram"></i>
+  </a>
+
   <!-- Floating Chatbot Toggle Button -->
   <button id="chatbot-toggle" class="chatbot-toggle shadow-2xl" onclick="toggleChatbot()">
       <i class="fa-solid fa-robot"></i>
